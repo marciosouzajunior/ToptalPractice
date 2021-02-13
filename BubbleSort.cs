@@ -8,7 +8,7 @@ namespace ToptalPractice
     public class BubbleSort
     {
 
-        public static int[] Sort(int[] numbers)
+        public static int[] SortRecursive(int[] numbers)
         {
 
             bool changed = false;
@@ -30,7 +30,41 @@ namespace ToptalPractice
             }
 
             if (changed)
-                return Sort(numbers);
+                return SortRecursive(numbers);
+
+            return numbers;
+
+        }
+
+        public static int[] Sort(int[] numbers)
+        {
+
+            do
+            {
+
+                bool changed = false;
+
+                for (int i = 0; i < numbers.Length - 1; i++)
+                {
+
+                    int firstNum = numbers[i];
+                    int secNum = numbers[i + 1];
+
+                    if (firstNum > secNum)
+                    {
+
+                        numbers[i] = secNum;
+                        numbers[i + 1] = firstNum;
+                        changed = true;
+
+                    }
+
+                }
+
+                if (!changed)
+                    break;
+
+            } while (true);
 
             return numbers;
 

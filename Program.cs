@@ -26,20 +26,30 @@ namespace ToptalPractice
             BalancedBrackets.IsBalanced("{[()]}");
             BalancedBrackets.IsBalanced("{[(])}");
             BalancedBrackets.IsBalanced("{{[[(())]]}}");
+            BalancedBrackets.IsBalancedRecursive("{[()]}");
+            BalancedBrackets.IsBalancedRecursive("{[(])}");
+            BalancedBrackets.IsBalancedRecursive("{{[[(())]]}}");
 
             // Binary search
             int[] arr = new int[] { 1, 2, 3, 5, 7, 4, 5, 6 };
             Array.Sort(arr);
             Console.WriteLine("Index of element {0}: {1}", 4, BinarySearch.Search(arr, 4));
             Console.WriteLine("Index of element {0}: {1}", 9, BinarySearch.Search(arr, 9));
-            //Console.WriteLine("Index of element {0}: {1}", 4, BinarySearch.SearchRecursive(arr, 0, arr.Length - 1, 4));
-            //Console.WriteLine("Index of element {0}: {1}", 9, BinarySearch.SearchRecursive(arr, 0, arr.Length - 1, 9));
+            Console.WriteLine("Index of element {0}: {1}", 4, BinarySearch.SearchRecursive(arr, 0, arr.Length - 1, 4));
+            Console.WriteLine("Index of element {0}: {1}", 9, BinarySearch.SearchRecursive(arr, 0, arr.Length - 1, 9));
 
             // BubbleSort
             int[] arr1 = new int[] { 5, 8, 3, 2, 7, 1, 0 };
             Console.WriteLine("Unsorted: {0}", string.Join(",", arr1));
             BubbleSort.Sort(arr1);
             Console.WriteLine("Sorted: {0}", string.Join(",", arr1));
+
+            // Recursive:
+            int[] arr2 = new int[] { 5, 8, 3, 2, 7, 1, 0 };
+            Console.WriteLine("Unsorted: {0}", string.Join(",", arr2));
+            BubbleSort.SortRecursive(arr2);
+            Console.WriteLine("Sorted: {0}", string.Join(",", arr2));
+
 
             // Find word by precedence rules
             PrecedenceRule.FindWord(

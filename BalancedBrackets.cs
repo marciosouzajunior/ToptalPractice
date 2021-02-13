@@ -26,7 +26,7 @@ namespace ToptalPractice
          * If a string is balanced, return YES. Otherwise, return NO.
          */
 
-        public static bool IsBalanced(string str)
+        public static bool IsBalancedRecursive(string str)
         {
 
             int len = str.Length;
@@ -36,7 +36,7 @@ namespace ToptalPractice
             str = str.Replace("{}", "");
 
             if (len != str.Length)
-                return IsBalanced(str);
+                return IsBalancedRecursive(str);
 
             if (len == 0)
             {
@@ -46,7 +46,35 @@ namespace ToptalPractice
             {
                 Console.WriteLine("Is not balanced.");
                 return false;
-            }                
+            }
+
+        }
+
+        public static void IsBalanced(string str) {
+
+            do
+            {
+
+                int len = str.Length;
+
+                str = str.Replace("()", "");
+                str = str.Replace("[]", "");
+                str = str.Replace("{}", "");
+
+                // Break if len not changed
+                if (str.Length == len)
+                {
+
+                    if (len == 0)
+                        Console.WriteLine("Is balanced.");
+                    else
+                        Console.WriteLine("Is not balanced.");
+
+                    break;
+
+                }
+                
+            } while (true);
 
         }
 
