@@ -82,6 +82,27 @@ namespace ToptalPractice
             // Maximum sequence of paired items
             MaxPaired.Max("AAABCEFFFFFFG");
 
+            // Binary Tree
+            BinaryTree.BTree();
+
+            // Longest domino chain
+            List<Domino> chain = new List<Domino>();
+            List<Domino> dominoList = new List<Domino>();
+
+            dominoList.Add(new Domino(0, -1));
+            dominoList.Add(new Domino(1, -1));
+            dominoList.Add(new Domino(0, 3));
+            dominoList.Add(new Domino(3, 0));
+            dominoList.Add(new Domino(3, 1));
+            dominoList.Add(new Domino(-2, -1));
+            dominoList.Add(new Domino(0, -1));
+            dominoList.Add(new Domino(2, -2));
+            dominoList.Add(new Domino(-1, 2));
+            dominoList.Add(new Domino(3, -3));
+
+            DominoChain.ListChains(chain, dominoList);
+            Console.WriteLine("Longest domino chain: {0}.",  DominoChain.longestChain);
+
         }
 
     }
