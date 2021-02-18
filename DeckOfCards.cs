@@ -45,14 +45,14 @@ namespace ToptalPractice
                 "AS", "AC", "AD", "AH"
             };
 
-            Dictionary<string, bool> distinct = new Dictionary<string, bool>();
+            Dictionary<string, bool> dict = new Dictionary<string, bool>();
             int decks = 0;
             int count = 0;
 
             foreach (string card in cardsArray)
             {
 
-                distinct[card] = true;
+                dict[card] = true;
                 count += 1;
 
                 if (count >= 52)
@@ -66,7 +66,7 @@ namespace ToptalPractice
             foreach (string card in fullDeck)
             {
 
-                if (!distinct.ContainsKey(card))
+                if (!dict.ContainsKey(card))
                 {
                     decks = 0;
                 }
