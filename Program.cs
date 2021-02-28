@@ -108,6 +108,12 @@ namespace ToptalPractice
             int[] rotatedArray = RotateArray.rotLeft(new int[] { 1, 2, 3, 4, 5 }, 4);
             Console.WriteLine("Rotated array: {0}", string.Join(", ", rotatedArray));
 
+            // Minimum swaps
+            // https://www.hackerrank.com/challenges/minimum-swaps-2
+            Console.WriteLine("Minimum swaps: {0}", MinimumSwaps.minimumSwaps(new int[] { 4, 3, 1, 2 }));
+
+
+
         }
 
     }
