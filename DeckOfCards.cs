@@ -29,51 +29,36 @@ namespace ToptalPractice
         public static void FullDecks(List<string> cardsArray)
         {
 
-            List<string> fullDeck = new List<string> {
-                "2S", "2C", "2D", "2H", 
-                "3S", "3C", "3D", "3H", 
-                "4S", "4C", "4D", "4H", 
-                "5S", "5C", "5D", "5H", 
-                "6S", "6C", "6D", "6H", 
-                "7S", "7C", "7D", "7H", 
-                "8S", "8C", "8D", "8H", 
-                "9S", "9C", "9D", "9H", 
-                "TS", "TC", "TD", "TH", 
-                "JS", "JC", "JD", "JH", 
-                "QS", "QC", "QD", "QH", 
-                "KS", "KC", "KD", "KH", 
-                "AS", "AC", "AD", "AH"
-            };
+            Dictionary<string, int> deck = new Dictionary<string, int>();
 
-            Dictionary<string, bool> dict = new Dictionary<string, bool>();
-            int decks = 0;
-            int count = 0;
-
+            // Add all cards into an dictionary, and count how many of each type
             foreach (string card in cardsArray)
             {
-
-                dict[card] = true;
-                count += 1;
-
-                if (count >= 52)
-                {
-                    decks += 1;
-                    count = 0;
-                }
-
+                if (deck.ContainsKey(card))
+                    deck[card] = deck[card] + 1;
+                else
+                    deck.Add(card, 1);
             }
 
-            foreach (string card in fullDeck)
+            // Check if there is a full deck
+            if (deck.Count < 52)
             {
+                Console.WriteLine("The cards dont make a full deck.");
+                return;
+            }                
 
-                if (!dict.ContainsKey(card))
-                {
-                    decks = 0;
-                }
+            // Check which card has the minimum value
+            int minValue = int.MaxValue;
+            foreach (var item in deck)
+            {
+                if (item.Value < minValue)
+                    minValue = item.Value;
 
+                if (minValue == 1)
+                    break;
             }
 
-            Console.WriteLine("{0} full decks.", decks);
+            Console.WriteLine("{0} full decks.", minValue);
 
         }
 
